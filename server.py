@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 
 # /cars GET method
-# Returns array in JSON format with all results (without ObjectId)
+# Returns array in JSON format with all results
 @app.route('/cars', methods=['GET'])
 def getAllCars():
     try:
