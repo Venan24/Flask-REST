@@ -23,9 +23,7 @@ app = Flask(__name__)
 @app.route('/cars', methods=['GET'])
 def getAllCars():
     try:
-        carsArray = []
-        for x in mydb.Cars.find({}):
-            carsArray.append(x)
+        carsArray = mydb.Cars.find({})
         return Response(dumps(carsArray),  mimetype='application/json', status=201)
     except Exception as e:
         return dumps({'error' : str(e)})
