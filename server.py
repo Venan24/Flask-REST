@@ -24,7 +24,7 @@ app = Flask(__name__)
 def getAllCars():
     try:
         carsArray = mydb.Cars.find({})
-        return Response(dumps(carsArray),  mimetype='application/json', status=201)
+        return Response(dumps(carsArray),  mimetype='application/json', status=200)
     except Exception as e:
         return dumps({'error' : str(e)})
 
@@ -35,7 +35,7 @@ def getCarByVin(vin):
     try:
         ### Find By Object ID mydb.Cars.find_one({'_id' : ObjectId(vin)})
         data = mydb.Cars.find_one({'vin_number' : vin})
-        return Response(dumps(data),  mimetype='application/json', status=201)
+        return Response(dumps(data),  mimetype='application/json', status=200)
     except Exception as e:
         return dumps({'error' : str(e)})
 
